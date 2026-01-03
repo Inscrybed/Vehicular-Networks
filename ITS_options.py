@@ -65,5 +65,3 @@ range_scale = 0.8
 # Interference zone packet drop probability
 #------------------------------------------------
 drop_threshold = 2
-
-

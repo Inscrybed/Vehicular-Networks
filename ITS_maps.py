@@ -93,8 +93,8 @@ map = {"1":{'type': rsu_node, 'sub_type': rsu_sub_type, 'x':1000, 'y':0,  'statu
             }
         },
        "5":{'type':  obu_node,  'sub_type': obu_sub_type1, 'x': 1000,  'y': 100,    'speed':100,   'direction':'f',  'heading':'S',  'status': 'inactive'},
-       "6":{'type':  obu_node,  'sub_type': obu_sub_type1, 'x':   25,  'y': 200,    'speed':100,   'direction':'f',  'heading':'S',  'status': 'inactive'},
-       "7":{'type':  obu_node,  'sub_type': obu_sub_type1, 'x':   25,  'y':-200,    'speed':100,   'direction':'f',  'heading':'N',  'status': 'inactive'},
+       "6":{'type':  obu_node,  'sub_type': obu_sub_type1, 'x': 990,  'y': 105,    'speed':100,   'direction':'f',  'heading':'S',  'status': 'inactive'},
+       "7":{'type':  obu_node,  'sub_type': obu_sub_type1, 'x': 1000,  'y': 90,    'speed':100,   'direction':'f',  'heading':'S',  'status': 'inactive'},
        "8":{'type':  obu_node,  'sub_type': obu_sub_type2, 'x': 1000,  'y':   25,    'speed':100,   'direction':'f',  'heading':'O',  'status': 'inactive', 'plus_info': 'emergency on'},
        "9":{'type':  obu_node,  'sub_type': obu_sub_type1, 'x':  900,  'y':   25,    'speed':100,   'direction':'f',  'heading':'O',  'status': 'inactive'},
        "10":{'type': obu_node,  'sub_type': obu_sub_type1, 'x':-1000,   'y': -25,    'speed':100,   'direction':'f',  'heading':'E',  'status': 'inactive'}}

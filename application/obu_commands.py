@@ -36,12 +36,12 @@ def collision_route (coordinates, obd_2_interface, msg_rxd):
 			return True
 	else:
 		return False
-	
-def movement_change(movement_control_txd_queue, severity):
-	if severity >= 4:
+
+def movement_change(movement_control_txd_queue, severity, confidence):
+	if severity >= 4 and confidence >= 1.0:
 		print("Severe event detected! Stopping car.")
 		stop_car(movement_control_txd_queue)
-	elif severity >= 2:
+	elif (severity >= 2 and confidence >= 2.0) or (severity >= 4 and confidence >= 0.5):
 		print("Moderate event detected! Slowing down car.")
 		car_move_slower(movement_control_txd_queue)
 	else:

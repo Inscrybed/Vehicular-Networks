@@ -168,7 +168,8 @@ def rsu_system(rsu_interface, start_flag, coordinates, my_system_in_queue, rsu_c
             new_EventType = event_rxd["event_type"]
             #new_Location = msg_rxd.get("location")
             new_Location = event_rxd["location"]
-            new_Confidence = msg_rxd.get("confidence")
+            #new_Confidence = msg_rxd.get("confidence")
+            new_Confidence = event_rxd["confidence"]
             new_Node_ID = msg_rxd.get("node")
 
             # Procurar por um evento igual existente no array, se existir aumentar a confidence
@@ -177,11 +178,16 @@ def rsu_system(rsu_interface, start_flag, coordinates, my_system_in_queue, rsu_c
                 clause1 = e.get("event_type") == new_EventType
                 clause2 = is_in_zone(e.get("location"), new_Location, LOCATION_RADIUS)
 
-                #print("Checking event:", e.get("event_id"))
-                #print("  First Clause (event_type):", clause1)
-                #print("  Second Clause (location):", clause2)
-                #print("  Third Clause (node):", clause3)
-                #print("")
+                '''
+                print("\nChecking event:", e.get("event_id"))
+                print("  First Clause (event_type):", clause1)
+                print("  Second Clause (location):", clause2)
+                print("  Third Clause (node):", clause3)
+                print('=======================\n')
+                '''
+
+                #print('Message rxd: ', msg_rxd)
+                #print('=======================\n')
 
                 if clause1 and clause2:
                     event_X = e
@@ -206,6 +212,8 @@ def rsu_system(rsu_interface, start_flag, coordinates, my_system_in_queue, rsu_c
             print('Printing EventArray')
             print(EventArray)
             print('=======================\n')
+
+            print('\nEvent Confidence:', event["confidence"], '\n')
 
             print('Echoing as IVIM message...')
             print('=======================\n')

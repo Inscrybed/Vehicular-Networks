@@ -122,13 +122,15 @@ def obu_system(obd_2_interface, start_flag, coordinates, my_system_rxd_queue, mo
 				#print('\n', event, '\n')
 				print ('\n', event_id, event_type, hazard_subtype, status, severity, confidence, '\n')
 			
-			movement_change(movement_control_txd_queue, severity)
+			#Comportamento a vir da OBU está igual à RSU: suposto?
+			movement_change(movement_control_txd_queue, severity, confidence)
 
 		# Processar mensagens IVIM e enviar DEN quando deteta road_works
 		elif (msg_rxd['msg_type']=='IVIM'):
 			use_case = msg_rxd['situation']['event_type']
 			situation = msg_rxd['situation']['hazard_subtype']
 			severity = msg_rxd['situation']['severity']
+			confidence = msg_rxd['situation']['confidence']
 			#use_case, situation = ivim_message_received(msg_rxd)
 			if (use_case == 'road_surface_hazard'):
 				if (app_conf.debug_app) or (app_conf.debug_obu):
@@ -154,7 +156,7 @@ def obu_system(obd_2_interface, start_flag, coordinates, my_system_rxd_queue, mo
 					print ('IVIM situation: road_works detected')
 				#car_move_slower(movement_control_txd_queue)
 			
-			movement_change(movement_control_txd_queue, severity)
+			movement_change(movement_control_txd_queue, severity, confidence)
 		
 		else:
 			print('Received message not IVIM nor DEN')
